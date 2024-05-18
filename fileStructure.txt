@@ -1,0 +1,547 @@
+HDF5 "chris_et_hdf5" {
+GROUP "/" {
+   DATASET "class_table_mapping" {
+      DATATYPE  H5T_COMPOUND {
+         H5T_STD_U32LE "class_id";
+         H5T_STD_U32LE "class_type_id";
+         H5T_STRING {
+            STRSIZE 32;
+            STRPAD H5T_STR_NULLTERM;
+            CSET H5T_CSET_ASCII;
+            CTYPE H5T_C_S1;
+         } "class_name";
+         H5T_STRING {
+            STRSIZE 128;
+            STRPAD H5T_STR_NULLTERM;
+            CSET H5T_CSET_ASCII;
+            CTYPE H5T_C_S1;
+         } "table_path";
+      }
+      DATASPACE  SIMPLE { ( 21 ) / ( H5S_UNLIMITED ) }
+   }
+   GROUP "data_collection" {
+      GROUP "condition_variables" {
+      }
+      GROUP "events" {
+         GROUP "experiment" {
+            DATASET "LogEvent" {
+               DATATYPE  H5T_COMPOUND {
+                  H5T_STD_U8LE "experiment_id";
+                  H5T_STD_U8LE "session_id";
+                  H5T_STD_U8LE "device_id";
+                  H5T_STD_U32LE "event_id";
+                  H5T_STD_U8LE "type";
+                  H5T_IEEE_F64LE "device_time";
+                  H5T_IEEE_F64LE "logged_time";
+                  H5T_IEEE_F64LE "time";
+                  H5T_IEEE_F32LE "confidence_interval";
+                  H5T_IEEE_F32LE "delay";
+                  H5T_STD_I16LE "filter_id";
+                  H5T_STD_U8LE "log_level";
+                  H5T_STRING {
+                     STRSIZE 128;
+                     STRPAD H5T_STR_NULLTERM;
+                     CSET H5T_CSET_ASCII;
+                     CTYPE H5T_C_S1;
+                  } "text";
+               }
+               DATASPACE  SIMPLE { ( 63 ) / ( H5S_UNLIMITED ) }
+            }
+            DATASET "MessageEvent" {
+               DATATYPE  H5T_COMPOUND {
+                  H5T_STD_U8LE "experiment_id";
+                  H5T_STD_U8LE "session_id";
+                  H5T_STD_U8LE "device_id";
+                  H5T_STD_U32LE "event_id";
+                  H5T_STD_U8LE "type";
+                  H5T_IEEE_F64LE "device_time";
+                  H5T_IEEE_F64LE "logged_time";
+                  H5T_IEEE_F64LE "time";
+                  H5T_IEEE_F32LE "confidence_interval";
+                  H5T_IEEE_F32LE "delay";
+                  H5T_STD_I16LE "filter_id";
+                  H5T_IEEE_F32LE "msg_offset";
+                  H5T_STRING {
+                     STRSIZE 32;
+                     STRPAD H5T_STR_NULLTERM;
+                     CSET H5T_CSET_ASCII;
+                     CTYPE H5T_C_S1;
+                  } "category";
+                  H5T_STRING {
+                     STRSIZE 128;
+                     STRPAD H5T_STR_NULLTERM;
+                     CSET H5T_CSET_ASCII;
+                     CTYPE H5T_C_S1;
+                  } "text";
+               }
+               DATASPACE  SIMPLE { ( 457 ) / ( H5S_UNLIMITED ) }
+            }
+         }
+         GROUP "eyetracker" {
+            DATASET "BinocularEyeSampleEvent" {
+               DATATYPE  H5T_COMPOUND {
+                  H5T_STD_U8LE "experiment_id";
+                  H5T_STD_U8LE "session_id";
+                  H5T_STD_U8LE "device_id";
+                  H5T_STD_U32LE "event_id";
+                  H5T_STD_U8LE "type";
+                  H5T_IEEE_F64LE "device_time";
+                  H5T_IEEE_F64LE "logged_time";
+                  H5T_IEEE_F64LE "time";
+                  H5T_IEEE_F32LE "confidence_interval";
+                  H5T_IEEE_F32LE "delay";
+                  H5T_STD_I16LE "filter_id";
+                  H5T_IEEE_F32LE "left_gaze_x";
+                  H5T_IEEE_F32LE "left_gaze_y";
+                  H5T_IEEE_F32LE "left_gaze_z";
+                  H5T_IEEE_F32LE "left_eye_cam_x";
+                  H5T_IEEE_F32LE "left_eye_cam_y";
+                  H5T_IEEE_F32LE "left_eye_cam_z";
+                  H5T_IEEE_F32LE "left_angle_x";
+                  H5T_IEEE_F32LE "left_angle_y";
+                  H5T_IEEE_F32LE "left_raw_x";
+                  H5T_IEEE_F32LE "left_raw_y";
+                  H5T_IEEE_F32LE "left_pupil_measure1";
+                  H5T_STD_U8LE "left_pupil_measure1_type";
+                  H5T_IEEE_F32LE "left_pupil_measure2";
+                  H5T_STD_U8LE "left_pupil_measure2_type";
+                  H5T_IEEE_F32LE "left_ppd_x";
+                  H5T_IEEE_F32LE "left_ppd_y";
+                  H5T_IEEE_F32LE "left_velocity_x";
+                  H5T_IEEE_F32LE "left_velocity_y";
+                  H5T_IEEE_F32LE "left_velocity_xy";
+                  H5T_IEEE_F32LE "right_gaze_x";
+                  H5T_IEEE_F32LE "right_gaze_y";
+                  H5T_IEEE_F32LE "right_gaze_z";
+                  H5T_IEEE_F32LE "right_eye_cam_x";
+                  H5T_IEEE_F32LE "right_eye_cam_y";
+                  H5T_IEEE_F32LE "right_eye_cam_z";
+                  H5T_IEEE_F32LE "right_angle_x";
+                  H5T_IEEE_F32LE "right_angle_y";
+                  H5T_IEEE_F32LE "right_raw_x";
+                  H5T_IEEE_F32LE "right_raw_y";
+                  H5T_IEEE_F32LE "right_pupil_measure1";
+                  H5T_STD_U8LE "right_pupil_measure1_type";
+                  H5T_IEEE_F32LE "right_pupil_measure2";
+                  H5T_STD_U8LE "right_pupil_measure2_type";
+                  H5T_IEEE_F32LE "right_ppd_x";
+                  H5T_IEEE_F32LE "right_ppd_y";
+                  H5T_IEEE_F32LE "right_velocity_x";
+                  H5T_IEEE_F32LE "right_velocity_y";
+                  H5T_IEEE_F32LE "right_velocity_xy";
+                  H5T_STD_U8LE "status";
+               }
+               DATASPACE  SIMPLE { ( 211535 ) / ( H5S_UNLIMITED ) }
+            }
+            DATASET "BlinkEndEvent" {
+               DATATYPE  H5T_COMPOUND {
+                  H5T_STD_U8LE "experiment_id";
+                  H5T_STD_U8LE "session_id";
+                  H5T_STD_U8LE "device_id";
+                  H5T_STD_U32LE "event_id";
+                  H5T_STD_U8LE "type";
+                  H5T_IEEE_F64LE "device_time";
+                  H5T_IEEE_F64LE "logged_time";
+                  H5T_IEEE_F64LE "time";
+                  H5T_IEEE_F32LE "confidence_interval";
+                  H5T_IEEE_F32LE "delay";
+                  H5T_STD_I16LE "filter_id";
+                  H5T_STD_U8LE "eye";
+                  H5T_IEEE_F32LE "duration";
+                  H5T_STD_U8LE "status";
+               }
+               DATASPACE  SIMPLE { ( 0 ) / ( H5S_UNLIMITED ) }
+            }
+            DATASET "BlinkStartEvent" {
+               DATATYPE  H5T_COMPOUND {
+                  H5T_STD_U8LE "experiment_id";
+                  H5T_STD_U8LE "session_id";
+                  H5T_STD_U8LE "device_id";
+                  H5T_STD_U32LE "event_id";
+                  H5T_STD_U8LE "type";
+                  H5T_IEEE_F64LE "device_time";
+                  H5T_IEEE_F64LE "logged_time";
+                  H5T_IEEE_F64LE "time";
+                  H5T_IEEE_F32LE "confidence_interval";
+                  H5T_IEEE_F32LE "delay";
+                  H5T_STD_I16LE "filter_id";
+                  H5T_STD_U8LE "eye";
+                  H5T_STD_U8LE "status";
+               }
+               DATASPACE  SIMPLE { ( 0 ) / ( H5S_UNLIMITED ) }
+            }
+            DATASET "FixationEndEvent" {
+               DATATYPE  H5T_COMPOUND {
+                  H5T_STD_U8LE "experiment_id";
+                  H5T_STD_U8LE "session_id";
+                  H5T_STD_U8LE "device_id";
+                  H5T_STD_U32LE "event_id";
+                  H5T_STD_U8LE "type";
+                  H5T_IEEE_F64LE "device_time";
+                  H5T_IEEE_F64LE "logged_time";
+                  H5T_IEEE_F64LE "time";
+                  H5T_IEEE_F32LE "confidence_interval";
+                  H5T_IEEE_F32LE "delay";
+                  H5T_STD_I16LE "filter_id";
+                  H5T_STD_U8LE "eye";
+                  H5T_IEEE_F32LE "duration";
+                  H5T_IEEE_F32LE "start_gaze_x";
+                  H5T_IEEE_F32LE "start_gaze_y";
+                  H5T_IEEE_F32LE "start_gaze_z";
+                  H5T_IEEE_F32LE "start_angle_x";
+                  H5T_IEEE_F32LE "start_angle_y";
+                  H5T_IEEE_F32LE "start_raw_x";
+                  H5T_IEEE_F32LE "start_raw_y";
+                  H5T_IEEE_F32LE "start_pupil_measure1";
+                  H5T_STD_U8LE "start_pupil_measure1_type";
+                  H5T_IEEE_F32LE "start_pupil_measure2";
+                  H5T_STD_U8LE "start_pupil_measure2_type";
+                  H5T_IEEE_F32LE "start_ppd_x";
+                  H5T_IEEE_F32LE "start_ppd_y";
+                  H5T_IEEE_F32LE "start_velocity_x";
+                  H5T_IEEE_F32LE "start_velocity_y";
+                  H5T_IEEE_F32LE "start_velocity_xy";
+                  H5T_IEEE_F32LE "end_gaze_x";
+                  H5T_IEEE_F32LE "end_gaze_y";
+                  H5T_IEEE_F32LE "end_gaze_z";
+                  H5T_IEEE_F32LE "end_angle_x";
+                  H5T_IEEE_F32LE "end_angle_y";
+                  H5T_IEEE_F32LE "end_raw_x";
+                  H5T_IEEE_F32LE "end_raw_y";
+                  H5T_IEEE_F32LE "end_pupil_measure1";
+                  H5T_STD_U8LE "end_pupil_measure1_type";
+                  H5T_IEEE_F32LE "end_pupil_measure2";
+                  H5T_STD_U8LE "end_pupil_measure2_type";
+                  H5T_IEEE_F32LE "end_ppd_x";
+                  H5T_IEEE_F32LE "end_ppd_y";
+                  H5T_IEEE_F32LE "end_velocity_x";
+                  H5T_IEEE_F32LE "end_velocity_y";
+                  H5T_IEEE_F32LE "end_velocity_xy";
+                  H5T_IEEE_F32LE "average_gaze_x";
+                  H5T_IEEE_F32LE "average_gaze_y";
+                  H5T_IEEE_F32LE "average_gaze_z";
+                  H5T_IEEE_F32LE "average_angle_x";
+                  H5T_IEEE_F32LE "average_angle_y";
+                  H5T_IEEE_F32LE "average_raw_x";
+                  H5T_IEEE_F32LE "average_raw_y";
+                  H5T_IEEE_F32LE "average_pupil_measure1";
+                  H5T_STD_U8LE "average_pupil_measure1_type";
+                  H5T_IEEE_F32LE "average_pupil_measure2";
+                  H5T_STD_U8LE "average_pupil_measure2_type";
+                  H5T_IEEE_F32LE "average_ppd_x";
+                  H5T_IEEE_F32LE "average_ppd_y";
+                  H5T_IEEE_F32LE "average_velocity_x";
+                  H5T_IEEE_F32LE "average_velocity_y";
+                  H5T_IEEE_F32LE "average_velocity_xy";
+                  H5T_IEEE_F32LE "peak_velocity_x";
+                  H5T_IEEE_F32LE "peak_velocity_y";
+                  H5T_IEEE_F32LE "peak_velocity_xy";
+                  H5T_STD_U8LE "status";
+               }
+               DATASPACE  SIMPLE { ( 0 ) / ( H5S_UNLIMITED ) }
+            }
+            DATASET "FixationStartEvent" {
+               DATATYPE  H5T_COMPOUND {
+                  H5T_STD_U8LE "experiment_id";
+                  H5T_STD_U8LE "session_id";
+                  H5T_STD_U8LE "device_id";
+                  H5T_STD_U32LE "event_id";
+                  H5T_STD_U8LE "type";
+                  H5T_IEEE_F64LE "device_time";
+                  H5T_IEEE_F64LE "logged_time";
+                  H5T_IEEE_F64LE "time";
+                  H5T_IEEE_F32LE "confidence_interval";
+                  H5T_IEEE_F32LE "delay";
+                  H5T_STD_I16LE "filter_id";
+                  H5T_STD_U8LE "eye";
+                  H5T_IEEE_F32LE "gaze_x";
+                  H5T_IEEE_F32LE "gaze_y";
+                  H5T_IEEE_F32LE "gaze_z";
+                  H5T_IEEE_F32LE "angle_x";
+                  H5T_IEEE_F32LE "angle_y";
+                  H5T_IEEE_F32LE "raw_x";
+                  H5T_IEEE_F32LE "raw_y";
+                  H5T_IEEE_F32LE "pupil_measure1";
+                  H5T_STD_U8LE "pupil_measure1_type";
+                  H5T_IEEE_F32LE "pupil_measure2";
+                  H5T_STD_U8LE "pupil_measure2_type";
+                  H5T_IEEE_F32LE "ppd_x";
+                  H5T_IEEE_F32LE "ppd_y";
+                  H5T_IEEE_F32LE "velocity_x";
+                  H5T_IEEE_F32LE "velocity_y";
+                  H5T_IEEE_F32LE "velocity_xy";
+                  H5T_STD_U8LE "status";
+               }
+               DATASPACE  SIMPLE { ( 0 ) / ( H5S_UNLIMITED ) }
+            }
+            DATASET "MonocularEyeSampleEvent" {
+               DATATYPE  H5T_COMPOUND {
+                  H5T_STD_U8LE "experiment_id";
+                  H5T_STD_U8LE "session_id";
+                  H5T_STD_U8LE "device_id";
+                  H5T_STD_U32LE "event_id";
+                  H5T_STD_U8LE "type";
+                  H5T_IEEE_F64LE "device_time";
+                  H5T_IEEE_F64LE "logged_time";
+                  H5T_IEEE_F64LE "time";
+                  H5T_IEEE_F32LE "confidence_interval";
+                  H5T_IEEE_F32LE "delay";
+                  H5T_STD_I16LE "filter_id";
+                  H5T_STD_U8LE "eye";
+                  H5T_IEEE_F32LE "gaze_x";
+                  H5T_IEEE_F32LE "gaze_y";
+                  H5T_IEEE_F32LE "gaze_z";
+                  H5T_IEEE_F32LE "eye_cam_x";
+                  H5T_IEEE_F32LE "eye_cam_y";
+                  H5T_IEEE_F32LE "eye_cam_z";
+                  H5T_IEEE_F32LE "angle_x";
+                  H5T_IEEE_F32LE "angle_y";
+                  H5T_IEEE_F32LE "raw_x";
+                  H5T_IEEE_F32LE "raw_y";
+                  H5T_IEEE_F32LE "pupil_measure1";
+                  H5T_STD_U8LE "pupil_measure1_type";
+                  H5T_IEEE_F32LE "pupil_measure2";
+                  H5T_STD_U8LE "pupil_measure2_type";
+                  H5T_IEEE_F32LE "ppd_x";
+                  H5T_IEEE_F32LE "ppd_y";
+                  H5T_IEEE_F32LE "velocity_x";
+                  H5T_IEEE_F32LE "velocity_y";
+                  H5T_IEEE_F32LE "velocity_xy";
+                  H5T_STD_U8LE "status";
+               }
+               DATASPACE  SIMPLE { ( 0 ) / ( H5S_UNLIMITED ) }
+            }
+            DATASET "SaccadeEndEvent" {
+               DATATYPE  H5T_COMPOUND {
+                  H5T_STD_U8LE "experiment_id";
+                  H5T_STD_U8LE "session_id";
+                  H5T_STD_U8LE "device_id";
+                  H5T_STD_U32LE "event_id";
+                  H5T_STD_U8LE "type";
+                  H5T_IEEE_F64LE "device_time";
+                  H5T_IEEE_F64LE "logged_time";
+                  H5T_IEEE_F64LE "time";
+                  H5T_IEEE_F32LE "confidence_interval";
+                  H5T_IEEE_F32LE "delay";
+                  H5T_STD_I16LE "filter_id";
+                  H5T_STD_U8LE "eye";
+                  H5T_IEEE_F32LE "duration";
+                  H5T_IEEE_F32LE "amplitude_x";
+                  H5T_IEEE_F32LE "amplitude_y";
+                  H5T_IEEE_F32LE "angle";
+                  H5T_IEEE_F32LE "start_gaze_x";
+                  H5T_IEEE_F32LE "start_gaze_y";
+                  H5T_IEEE_F32LE "start_gaze_z";
+                  H5T_IEEE_F32LE "start_angle_x";
+                  H5T_IEEE_F32LE "start_angle_y";
+                  H5T_IEEE_F32LE "start_raw_x";
+                  H5T_IEEE_F32LE "start_raw_y";
+                  H5T_IEEE_F32LE "start_pupil_measure1";
+                  H5T_STD_U8LE "start_pupil_measure1_type";
+                  H5T_IEEE_F32LE "start_pupil_measure2";
+                  H5T_IEEE_F32LE "start_pupil_measure2_type";
+                  H5T_IEEE_F32LE "start_ppd_x";
+                  H5T_IEEE_F32LE "start_ppd_y";
+                  H5T_IEEE_F32LE "start_velocity_x";
+                  H5T_IEEE_F32LE "start_velocity_y";
+                  H5T_IEEE_F32LE "start_velocity_xy";
+                  H5T_IEEE_F32LE "end_gaze_x";
+                  H5T_IEEE_F32LE "end_gaze_y";
+                  H5T_IEEE_F32LE "end_gaze_z";
+                  H5T_IEEE_F32LE "end_angle_x";
+                  H5T_IEEE_F32LE "end_angle_y";
+                  H5T_IEEE_F32LE "end_raw_x";
+                  H5T_IEEE_F32LE "end_raw_y";
+                  H5T_IEEE_F32LE "end_pupil_measure1";
+                  H5T_STD_U8LE "end_pupil_measure1_type";
+                  H5T_IEEE_F32LE "end_pupil_measure2";
+                  H5T_STD_U8LE "end_pupil_measure2_type";
+                  H5T_IEEE_F32LE "end_ppd_x";
+                  H5T_IEEE_F32LE "end_ppd_y";
+                  H5T_IEEE_F32LE "end_velocity_x";
+                  H5T_IEEE_F32LE "end_velocity_y";
+                  H5T_IEEE_F32LE "end_velocity_xy";
+                  H5T_IEEE_F32LE "average_velocity_x";
+                  H5T_IEEE_F32LE "average_velocity_y";
+                  H5T_IEEE_F32LE "average_velocity_xy";
+                  H5T_IEEE_F32LE "peak_velocity_x";
+                  H5T_IEEE_F32LE "peak_velocity_y";
+                  H5T_IEEE_F32LE "peak_velocity_xy";
+                  H5T_STD_U8LE "status";
+               }
+               DATASPACE  SIMPLE { ( 0 ) / ( H5S_UNLIMITED ) }
+            }
+            DATASET "SaccadeStartEvent" {
+               DATATYPE  H5T_COMPOUND {
+                  H5T_STD_U8LE "experiment_id";
+                  H5T_STD_U8LE "session_id";
+                  H5T_STD_U8LE "device_id";
+                  H5T_STD_U32LE "event_id";
+                  H5T_STD_U8LE "type";
+                  H5T_IEEE_F64LE "device_time";
+                  H5T_IEEE_F64LE "logged_time";
+                  H5T_IEEE_F64LE "time";
+                  H5T_IEEE_F32LE "confidence_interval";
+                  H5T_IEEE_F32LE "delay";
+                  H5T_STD_I16LE "filter_id";
+                  H5T_STD_U8LE "eye";
+                  H5T_IEEE_F32LE "gaze_x";
+                  H5T_IEEE_F32LE "gaze_y";
+                  H5T_IEEE_F32LE "gaze_z";
+                  H5T_IEEE_F32LE "angle_x";
+                  H5T_IEEE_F32LE "angle_y";
+                  H5T_IEEE_F32LE "raw_x";
+                  H5T_IEEE_F32LE "raw_y";
+                  H5T_IEEE_F32LE "pupil_measure1";
+                  H5T_STD_U8LE "pupil_measure1_type";
+                  H5T_IEEE_F32LE "pupil_measure2";
+                  H5T_STD_U8LE "pupil_measure2_type";
+                  H5T_IEEE_F32LE "ppd_x";
+                  H5T_IEEE_F32LE "ppd_y";
+                  H5T_IEEE_F32LE "velocity_x";
+                  H5T_IEEE_F32LE "velocity_y";
+                  H5T_IEEE_F32LE "velocity_xy";
+                  H5T_STD_U8LE "status";
+               }
+               DATASPACE  SIMPLE { ( 0 ) / ( H5S_UNLIMITED ) }
+            }
+         }
+         GROUP "keyboard" {
+            DATASET "KeyboardInputEvent" {
+               DATATYPE  H5T_COMPOUND {
+                  H5T_STD_U8LE "experiment_id";
+                  H5T_STD_U8LE "session_id";
+                  H5T_STD_U8LE "device_id";
+                  H5T_STD_U32LE "event_id";
+                  H5T_STD_U8LE "type";
+                  H5T_IEEE_F64LE "device_time";
+                  H5T_IEEE_F64LE "logged_time";
+                  H5T_IEEE_F64LE "time";
+                  H5T_IEEE_F32LE "confidence_interval";
+                  H5T_IEEE_F32LE "delay";
+                  H5T_STD_I16LE "filter_id";
+                  H5T_STD_U16LE "auto_repeated";
+                  H5T_STD_U32LE "scan_code";
+                  H5T_STD_U32LE "key_id";
+                  H5T_STD_U32LE "ucode";
+                  H5T_STRING {
+                     STRSIZE 12;
+                     STRPAD H5T_STR_NULLTERM;
+                     CSET H5T_CSET_ASCII;
+                     CTYPE H5T_C_S1;
+                  } "key";
+                  H5T_STD_U32LE "modifiers";
+                  H5T_STD_U64LE "window_id";
+                  H5T_STRING {
+                     STRSIZE 4;
+                     STRPAD H5T_STR_NULLTERM;
+                     CSET H5T_CSET_ASCII;
+                     CTYPE H5T_C_S1;
+                  } "char";
+                  H5T_IEEE_F32LE "duration";
+                  H5T_STD_U32LE "press_event_id";
+               }
+               DATASPACE  SIMPLE { ( 286 ) / ( H5S_UNLIMITED ) }
+            }
+         }
+         GROUP "mouse" {
+            DATASET "MouseInputEvent" {
+               DATATYPE  H5T_COMPOUND {
+                  H5T_STD_U8LE "experiment_id";
+                  H5T_STD_U8LE "session_id";
+                  H5T_STD_U8LE "device_id";
+                  H5T_STD_U32LE "event_id";
+                  H5T_STD_U8LE "type";
+                  H5T_IEEE_F64LE "device_time";
+                  H5T_IEEE_F64LE "logged_time";
+                  H5T_IEEE_F64LE "time";
+                  H5T_IEEE_F32LE "confidence_interval";
+                  H5T_IEEE_F32LE "delay";
+                  H5T_STD_I16LE "filter_id";
+                  H5T_STD_U8LE "display_id";
+                  H5T_STD_U8LE "button_state";
+                  H5T_STD_U8LE "button_id";
+                  H5T_STD_U8LE "pressed_buttons";
+                  H5T_IEEE_F64LE "x_position";
+                  H5T_IEEE_F64LE "y_position";
+                  H5T_STD_I8LE "scroll_dx";
+                  H5T_STD_I16LE "scroll_x";
+                  H5T_STD_I8LE "scroll_dy";
+                  H5T_STD_I16LE "scroll_y";
+                  H5T_STD_U32LE "modifiers";
+                  H5T_STD_U64LE "window_id";
+               }
+               DATASPACE  SIMPLE { ( 7047 ) / ( H5S_UNLIMITED ) }
+            }
+         }
+         GROUP "pstbox" {
+         }
+         GROUP "serial" {
+         }
+         GROUP "wintab" {
+         }
+      }
+      DATASET "experiment_meta_data" {
+         DATATYPE  H5T_COMPOUND {
+            H5T_STD_U32LE "experiment_id";
+            H5T_STRING {
+               STRSIZE 256;
+               STRPAD H5T_STR_NULLTERM;
+               CSET H5T_CSET_ASCII;
+               CTYPE H5T_C_S1;
+            } "code";
+            H5T_STRING {
+               STRSIZE 256;
+               STRPAD H5T_STR_NULLTERM;
+               CSET H5T_CSET_ASCII;
+               CTYPE H5T_C_S1;
+            } "title";
+            H5T_STRING {
+               STRSIZE 4096;
+               STRPAD H5T_STR_NULLTERM;
+               CSET H5T_CSET_ASCII;
+               CTYPE H5T_C_S1;
+            } "description";
+            H5T_STRING {
+               STRSIZE 32;
+               STRPAD H5T_STR_NULLTERM;
+               CSET H5T_CSET_ASCII;
+               CTYPE H5T_C_S1;
+            } "version";
+         }
+         DATASPACE  SIMPLE { ( 1 ) / ( H5S_UNLIMITED ) }
+      }
+      DATASET "session_meta_data" {
+         DATATYPE  H5T_COMPOUND {
+            H5T_STD_U32LE "session_id";
+            H5T_STD_U32LE "experiment_id";
+            H5T_STRING {
+               STRSIZE 256;
+               STRPAD H5T_STR_NULLTERM;
+               CSET H5T_CSET_ASCII;
+               CTYPE H5T_C_S1;
+            } "code";
+            H5T_STRING {
+               STRSIZE 256;
+               STRPAD H5T_STR_NULLTERM;
+               CSET H5T_CSET_ASCII;
+               CTYPE H5T_C_S1;
+            } "name";
+            H5T_STRING {
+               STRSIZE 4096;
+               STRPAD H5T_STR_NULLTERM;
+               CSET H5T_CSET_ASCII;
+               CTYPE H5T_C_S1;
+            } "comments";
+            H5T_STRING {
+               STRSIZE 16384;
+               STRPAD H5T_STR_NULLTERM;
+               CSET H5T_CSET_ASCII;
+               CTYPE H5T_C_S1;
+            } "user_variables";
+         }
+         DATASPACE  SIMPLE { ( 1 ) / ( H5S_UNLIMITED ) }
+      }
+   }
+}
+}
